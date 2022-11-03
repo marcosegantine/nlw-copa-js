@@ -17,16 +17,16 @@ function createCard(data, day, games) {
      </ul>
     </div>`;
 }
+
 document.querySelector('#app').innerHTML = `
   <header class="header">
     <img src="./assets/nlw-icon.svg" alt="Icone nlw copa 2022">
   </header>
   <main class="cards">
   ${
-    createCard('20/11', 'sunday', createGame('qatar', '16:00', 'ecuador')) +
-    createGame('qatar', '16:00', 'ecuador')
+    createCard('20/11', 'sunday', 
+      createGame('qatar', '16:00', 'ecuador') +
+      createGame('qatar', '16:00', 'ecuador') +
+      createGame("england", "13:00", "iran"))
   }
-    
-  ${createCard('21/11', 'sunday', createGame('england', '13:00', 'iran'))}
-    createGame("england", "13:00", "iran"))}
   </main>`;
