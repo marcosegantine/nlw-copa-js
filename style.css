@@ -6,6 +6,25 @@
   box-sizing: border-box;
 }
 
+:root {
+
+  --card-color-primary: #f7dd43;
+  --card-bg-color: #1D1C19;
+
+  
+}
+
+body.green {
+  --card-color-primary: #047C3F;
+  --card-bg-color: #1A1F1B;
+
+}
+
+body.blue {
+  --card-color-primary: #338AF3;
+  --card-bg-color: #202024;
+
+}
 li {
   text-decoration: none;
 }
@@ -22,8 +41,39 @@ body {
   width: fit-content;
   margin: 0 auto;
   margin: 52px auto;
+  position: relative;
 }
 
+img [title] {
+  text-transform: uppercase;
+}
+
+.check {
+  padding: 5px 7px;
+  background: #fff;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  margin: 5px;
+}
+
+.check input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.blue {
+  top: -40px;
+  right: 10px;
+}
+
+.yellow {
+  top: -40px;
+  right: 30px;
+}
+.green {
+  top: -40px;
+  right: -10px;
+}
 .header {
   margin-bottom: 63px;
 }
@@ -32,10 +82,23 @@ body {
   display: block;
   margin: 0 auto 8px;
 }
-.cards {
+#cards {
   display: flex;
   flex-direction: column;
   gap: 32px;
+}
+
+@media (min-width: 700px) {
+  #cards {
+    max-width: 670px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 10px;
+    /* flex-direction: row;
+
+    flex-wrap: wrap;
+    justify-content: flex-start; */
+  }
 }
 
 .card {
@@ -44,7 +107,20 @@ body {
   border-radius: 6px;
   padding: 32px 23px;
   text-align: center;
-  border-bottom: 2px solid #F7DD43;
+  border-bottom: 2px solid var(--card-color-primary);
+  opacity: 0;
+  animation: dropDown 0.5s forwards;
+}
+
+@keyframes dropDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px)
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .card h2 {
@@ -56,7 +132,7 @@ body {
   gap: 16px;
   justify-content: center;
   font-weight: bold;
-  border: 2px solid #746615;
+  border: 2px solid var(--card-color-primary);
   text-transform: uppercase;
   border-radius: 6px;
   width: fit-content;
